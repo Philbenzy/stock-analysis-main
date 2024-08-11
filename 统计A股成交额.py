@@ -99,3 +99,5 @@ end_date = datetime.datetime(2024, 8, 8)
 X = 50
 total_stock_volumn_dict = calculate_total_stock_volumn(start_date, end_date,X)
 plot_stock_volumn(total_stock_volumn_dict)
+
+123
