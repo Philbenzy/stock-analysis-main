@@ -31,7 +31,7 @@ def COS(S):      return np.cos(S)            #求S的余弦值（弧度)
 def TAN(S):      return np.tan(S)            #求S的正切值（弧度)  
 def MAX(S1,S2):  return np.maximum(S1,S2)    #序列max
 def MIN(S1,S2):  return np.minimum(S1,S2)    #序列min
-def IF(S,A,B):   return np.where(S,A,B)      #序列布尔判断 return=A  if S==True  else  B
+def IF(S,A,B):   return np.where(S,A,B)      #序列布尔判断 return=A  if S==True  else  B 
 
 
 def REF(S, N=1):          #对序列整体下移动N,返回序列(shift后会产生NAN)    
