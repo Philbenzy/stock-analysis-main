@@ -6,7 +6,7 @@ import pandas as pd
 
 
 # 存放csv
-folder_path = '/Users/zyw/Desktop/datatdx/lday_qfq'
+folder_path = 'D:/app/TDX/data/lday_qfq'
 
 day_file_list = [file for file in os.listdir(folder_path) if file.endswith('.csv')]
 stock_code = []
@@ -18,7 +18,7 @@ for day in day_file_list:
     stock_code.append(code)
 
 for csv in day_file_list:
-    df = pd.read_csv(f'/Users/zyw/Desktop/lday_qfq/{csv}')
+    df = pd.read_csv(f'D:/app/TDX/data/lday_qfq/{csv}',encoding='GBK')
     
     CLOSE=df.close.values;  OPEN=df.open.values;   HIGH=df.high.values;   LOW=df.low.values   #基础数据定义
     MA5=MA(CLOSE,5)
@@ -33,7 +33,7 @@ print(f'查找完毕：{len(golden_x)}个')
 print('- - - - - - - - - - - - - - - - - - - - - - - - - - - -')
 die_x = []
 for csv in day_file_list:
-    df = pd.read_csv(f'/Users/zyw/Desktop/datatdx/lday_qfq/{csv}',encoding='GBK')
+    df = pd.read_csv(f'D:/app/TDX/data/lday_qfq/{csv}',encoding='GBK')
     CLOSE=df.close.values;  OPEN=df.open.values;   HIGH=df.high.values;   LOW=df.low.values   #基础数据定义
     MA5=MA(CLOSE,5)
     MA10=MA(CLOSE,10)
