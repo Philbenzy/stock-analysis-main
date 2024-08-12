@@ -100,7 +100,3 @@ def day2csv(source_dir, file_name, target_dir):
         begin += 32
         end += 32
     target_file.close()
-<<<<<<< HEAD
-=======
-
->>>>>>> a96f5f15bd4cdefe79b240dbe5f98c40ca9d21f6
