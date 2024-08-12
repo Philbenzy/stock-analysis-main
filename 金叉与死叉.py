@@ -1,6 +1,6 @@
 import pandas as pd
 from  utils.MyTT import *
-from helper import get_stock_dict
+from utils.helper import get_stock_dict
 import os
 import pandas as pd
 
