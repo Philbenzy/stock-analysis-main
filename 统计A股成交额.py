@@ -44,7 +44,8 @@ def calculate_total_stock_volumn(start_date: datetime.datetime, end_date: dateti
             total_stock_volumn = total_stock_volumn_sh + total_stock_volumn_sz
             top_X_percentage = float(top_X_volumn) / total_stock_volumn[0]
 
-            top_X.to_csv(f'/Users/zyw/stock-price/csv/top_{X}_volumn_companies_{rpt_date}.csv', index=False)
+            # 保存为CSV
+            # top_X.to_csv(f'/Users/zyw/stock-price/csv/top_{X}_volumn_companies_{rpt_date}.csv', index=False)
 
             total_stock_volumn_dict[rpt_date] = round(float(total_stock_volumn[0]), 2)
             print(f"{rpt_date}，A股成交总额: {total_stock_volumn} 亿元\n"
@@ -53,6 +54,7 @@ def calculate_total_stock_volumn(start_date: datetime.datetime, end_date: dateti
               f"前{X}家公司总成交额: {int(top_X_volumn)} 亿元\n"
               f"今日成交额top{X}公司占A股总成交额 : {top_X_percentage * 100}%")
         except Exception as e:
+            print(e)
             print(f"Error occurred on date: {rpt_date}")
             continue
 
@@ -75,7 +77,8 @@ def plot_stock_volumn(total_stock_volumn_dict: Dict[str, float]):
     volumns = list(total_stock_volumn_dict.values())
     print(volumns)
 
-    plt.rcParams['font.sans-serif'] = ['Arial Unicode MS']
+    plt.rcParams['font.sans-serif'] = ['Arial']
+    #plt.rcParams['font.sans-serif'] = ['Arial Unicode MS']
     plt.figure(figsize=(10, 6))
     plt.bar(dates, volumns, color='tab:blue', alpha=0.8)
     plt.title(f'「{dates[0]}-{dates[-1]}」A股成交总额', fontsize=16)
@@ -94,10 +97,8 @@ def plot_stock_volumn(total_stock_volumn_dict: Dict[str, float]):
     plt.show()
 
 # 调用
-start_date = datetime.datetime(2024, 7, 1)
-end_date = datetime.datetime(2024, 8, 8)
+start_date = datetime.datetime(2024, 8, 1)
+end_date = datetime.datetime(2024, 8, 12)
 X = 50
 total_stock_volumn_dict = calculate_total_stock_volumn(start_date, end_date,X)
 plot_stock_volumn(total_stock_volumn_dict)
-
-123
